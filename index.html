@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonic Search — natural-language search over the CWI catalog</title>
+<meta name="description" content="Search the Cumulative Web Inc music catalog in plain language: paste a sync brief, set numeric filters, get ranked tracks with transparent, value-cited scoring.">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cumulativewebinc.github.io/cwi-i18n/i18n.js" data-app="sonic-search"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-badge">CWI</div>
+    <div>
+      <h1 data-i18n="app.title">Sonic Search</h1>
+      <p class="tagline" data-i18n="app.tagline">Search the CWI catalog in plain language — real audio features, honest limits.</p>
+    </div>
+  </div>
+  <div class="coverage-pill" data-i18n="app.coverage">35 tracks · 6 with measured audio features</div>
+</header>
+
+<main>
+  <section class="search-panel">
+    <label class="big-label" for="q" data-i18n="search.label">Describe what you need</label>
+    <textarea id="q" rows="3" data-i18n-ph="search.placeholder"
+      placeholder="Paste a sync brief: “dark 140bpm trap for a fight scene”"></textarea>
+
+    <div class="chips">
+      <div class="chip">
+        <label for="tempoMin">Tempo <span id="tempoVal">any</span></label>
+        <div class="sliders">
+          <input type="range" id="tempoMin" min="60" max="180" step="5" value="60" aria-label="Minimum tempo (BPM)">
+          <input type="range" id="tempoMax" min="60" max="180" step="5" value="180" aria-label="Maximum tempo (BPM)">
+        </div>
+      </div>
+      <div class="chip">
+        <label for="energyMin">Energy <span id="energyVal">any</span></label>
+        <div class="sliders">
+          <input type="range" id="energyMin" min="0" max="100" step="5" value="0" aria-label="Minimum energy">
+          <input type="range" id="energyMax" min="0" max="100" step="5" value="100" aria-label="Maximum energy">
+        </div>
+      </div>
+      <div class="chip">
+        <label for="modeSel" data-i18n="search.mode">Mode</label>
+        <select id="modeSel">
+          <option value="" data-i18n="search.mode_any">any</option>
+          <option value="minor" data-i18n="search.mode_minor">minor</option>
+          <option value="major" data-i18n="search.mode_major">major</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="searchBtn" class="primary" data-i18n="search.button">Search the catalog</button>
+      <button id="clearBtn" class="ghost" data-i18n="search.clear">Clear</button>
+    </div>
+
+    <div class="examples">
+      <span class="examples-label" data-i18n="search.examples">Try:</span>
+      <button class="example" data-q="dark 140bpm trap for a fight scene">dark 140bpm trap for a fight scene</button>
+      <button class="example" data-q="chill summer afrobeats">chill summer afrobeats</button>
+      <button class="example" data-q="danceable minor">danceable minor</button>
+      <button class="example" data-q="high energy 80-90 bpm">high energy 80-90 bpm</button>
+      <button class="example" data-q="luxury cinematic for a heist scene">luxury cinematic for a heist scene</button>
+    </div>
+  </section>
+
+  <section id="parsedPanel" class="parsed-panel" hidden>
+    <h2 data-i18n="parsed.title">What we heard</h2>
+    <div id="parsedChips" class="parsed-chips"></div>
+  </section>
+
+  <section id="results" class="results" aria-live="polite"></section>
+
+  <section class="limits-panel">
+    <h2 data-i18n="limits.title">Honest limits</h2>
+    <p class="limits-text">Audio features: 6/35 tracks, via ReccoBeats third-party analysis (2026-09-16) — not Spotify's, not ours. Tracks without features match on catalog tags only; nothing is estimated. Coverage grows as tracks enter ReccoBeats' database.</p>
+    <p class="limits-sub" data-i18n="limits.sub">Mood tags are editorial (derived from track titles only). No feature value is ever estimated or imputed.</p>
+  </section>
+
+  <section class="clearance-panel">
+    <p class="clearance-line">Sync licensing: one-stop via <a href="mailto:hp@cumulativeweb.com">hp@cumulativeweb.com</a> · terms confirmed on request</p>
+    <p><span class="badge clear">clearance on request</span></p>
+    <p class="clearance-note" data-i18n="clearance.note">Every result carries its clearance path: find → email → done.</p>
+  </section>
+
+  <section class="agent-panel">
+    <h2 data-i18n="agent.title">For agents</h2>
+    <p><span data-i18n="agent.line1">Machine-readable results:</span>
+      <code>?q=<span data-i18n="agent.yourquery">your+query</span>&amp;format=json</code>
+      · <a href="results.schema.json" data-i18n="agent.schema">results schema (cwi.sonic-result/1.0)</a>
+      · <a href="data.json" data-i18n="agent.data">track dataset</a></p>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer.line">Sonic Search · Cumulative Web Inc · Agent Deck SKU #33 · built on measured audio truth, not tag probabilities.</p>
+</footer>
+
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
