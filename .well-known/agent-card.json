@@ -1,0 +1,28 @@
+{
+  "name": "Sonic Search",
+  "title": "Sonic Search",
+  "url": "https://cumulativewebinc.github.io/cwi-sonic-search/",
+  "description": "Natural-language search over the 35-track CWI catalog \u2014 real measured audio features, transparent scoring, honest coverage labels.",
+  "version": "1.0.0",
+  "provider": {
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com",
+    "contact": "hp@cumulativeweb.com"
+  },
+  "auth": "none",
+  "pricing": "free",
+  "capabilities": [
+    "AIMS-style brief box + Cyanite-style numeric chips",
+    "Transparent value-cited score breakdowns",
+    "Honest coverage labels on every result",
+    "?q= deep links + ?q=&format=json machine-readable payload (cwi.sonic-result/1.0)",
+    "One-stop clearance via hp@cumulativeweb.com (neutral chip)",
+    "26/26 tests"
+  ],
+  "honest_limits": "Audio features exist for 6/35 tracks only; the rest are tag-only matches, labeled as such. Never estimates audio features.",
+  "machine_interfaces": {
+    "sample_query": "https://cumulativewebinc.github.io/cwi-sonic-search/?q=dark%20trap%20fight%20scene",
+    "json_api": "https://cumulativewebinc.github.io/cwi-sonic-search/?q=dark%20trap&format=json",
+    "schema": "https://cumulativewebinc.github.io/cwi-sonic-search/results.schema.json"
+  }
+}

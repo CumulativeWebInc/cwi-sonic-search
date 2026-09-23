@@ -27,9 +27,8 @@ main { max-width: 860px; margin: 0 auto; padding: 0 16px 48px; }
 .brand { display: flex; gap: 12px; align-items: center; }
 .brand-badge {
   width: 46px; height: 46px; border-radius: 50%;
-  border: 2px solid var(--gold); color: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; letter-spacing: 1px; font-size: 15px; flex: none;
+  border: 2px solid var(--gold);
+  object-fit: cover; letter-spacing: 1px; font-size: 15px; flex: none;
 }
 .brand h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
 .tagline { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
