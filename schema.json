@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sonic Search (#33)",
+  "url": "https://cumulativewebinc.github.io/cwi-sonic-search/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Organization",
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com/"
+  },
+  "description": "Natural-language search over the 35-track CWI catalog with numeric audio-feature chips; real audio features on 6 of 35 tracks."
+}
